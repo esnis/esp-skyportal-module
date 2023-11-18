@@ -13,8 +13,8 @@
 #define LEDPIN 2
 
 // Replace with your network credentials
-const char* ssid     = "Celestron-F7F";
-const char* password = "123456789";
+const char* ssid     = "Celestron";
+const char* password = "123456789f";
 
 // advertisement over udp. interestingly, the mac advertised starts with 4C, but the actual mac is starting with 4E.
 // the end "0F:80" is (0x0F, 0x7F) +1 because WiFi.h uses a diffrent MAC (mac+1) for the server than for wifi advertisment.
@@ -228,7 +228,7 @@ void setup() {
   // Connect to Wi-Fi network with SSID and password
   Serial.println("Setting AP (Access Point)...");
 
-  WiFi.onEvent(WiFiEventConfigureWifi, WiFiEvent_t::SYSTEM_EVENT_AP_START);
+  WiFi.onEvent(WiFiEventConfigureWifi, WiFiEvent_t::ARDUINO_EVENT_WIFI_AP_START);
 
   // Add the password parameter, if you want the AP (Access Point) to be open
   // WiFi.softAP(ssid, password);
